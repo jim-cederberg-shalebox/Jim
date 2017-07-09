@@ -1,5 +1,8 @@
 <?php
 
+echo "Success";
+die();
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
