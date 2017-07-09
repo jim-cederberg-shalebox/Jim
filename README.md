@@ -1,66 +1,51 @@
-Welcome to the AWS CodeStar sample web application
-==================================================
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-This sample code helps get you started with a simple PHP Laravel web
-application deployed by AWS Elastic Beanstalk.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-What's Here
------------
+## About Laravel
 
-This sample includes:
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-* README.md - this file
-* .ebextensions/ - this directory contains the PHP configuration file that
-  allows AWS Elastic Beanstalk to deploy your PHP application.  Note that this
-  directory contains a Laravel config file (00laravel.config) that includes a
-  pre-defined Laravel application key.  This application key should be replaced
-  with one you generate (see
-  http://laravel-recipes.com/recipes/283/generating-a-new-application-key) for
-  details.
-* index.php - this file contains the sample application
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
 
-Getting Started
----------------
+## Learning Laravel
 
-These directions assume you want to develop on your local computer, and not
-from the Amazon EC2 instance itself. If you're on the Amazon EC2 instance, the
-virtual environment is already set up for you, and you can start working on the
-code.
+Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-To work on the sample code, you'll need to clone your project's AWS CodeCommit
-repository to your local computer. If you haven't, do that first. You can find
-instructions in the AWS CodeStar user guide.
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-1. Install PHP.  See http://php.net/manual/en/install.php for details.
+## Laravel Sponsors
 
-2. Install composer.  See https://getcomposer.org/doc/00-intro.md for
-   details.
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
 
-3. Install your dependencies:
+- **[Vehikl](http://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Styde](https://styde.net)**
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
 
-        $ php composer.phar install
+## Contributing
 
-4. Start the PHP development server:
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-        $ php artisan serve
+## Security Vulnerabilities
 
-5. Open http://127.0.0.1:8000/ in a web browser to view your application.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-What Do I Do Next?
-------------------
+## License
 
-Once you have a virtual environment running, you can start making changes to
-the sample PHP web application. We suggest making a small change to index.phhp
-first, so you can see how changes pushed to your project's repository in AWS
-CodeCommit are automatically picked up by your project pipeline and deployed to
-the Amazon EC2 instance by AWS Elastic Beanstalk. (You can watch the pipeline
-progress on your project dashboard.) Once you've seen how that works, start
-developing your own code, and have fun!
-
-Learn more about AWS CodeStar by reading the [user guide][User Guide].  Ask
-questions or make suggestions on our [forum][Forum].
-
-[User Guide]: http://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
-
-[Forum]: https://forums.aws.amazon.com/forum.jspa?forumID=248
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
