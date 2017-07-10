@@ -22,17 +22,3 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
-
-$factory->define(App\Article::class, function (Faker\Generator $faker) {
-  $tags = collect(['php', 'ruby', 'java', 'javascript', 'bash'])
-        ->random(2)
-        ->values()
-        ->all();
-
-  return [
-    'title' => $faker->sentence,
-    'body' => $faker->text,
-    'tags' => $tags,
-  ];
-
-});

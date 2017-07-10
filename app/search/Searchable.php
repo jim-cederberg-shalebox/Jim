@@ -3,10 +3,11 @@
 namespace App\Search;
 
 trait Searchable {
+
   public static function bootSearchable() {
     // This makes it easy to toggle the search feature flag
-    // on and off.  This is going to prove useful later on
-    // when we deploy the new search engine to a live app.
+    // on and off. This is going to prove useful later on
+    // when deploy the new search engine to a live app.
     if (config('services.search.enabled')) {
       static::observe(ElasticsearchObserver::class);
     }

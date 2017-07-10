@@ -2,40 +2,31 @@
 
 namespace App\Search;
 
-trait Searchable {
-namespace App\Search;
+use Elasticsearch\Client;
 
-trait Searchable
-{
-    public static function bootSearchable()
-    {
-        // This makes it easy to toggle the search feature flag
-        // on and off. This is going to prove useful later on
-        // when deploy the new search engine to a live app.
-        if (config('services.search.enabled')) {
-            static::observe(ElasticsearchObserver::class);
-        }
-    }
+class ElasticsearchObserver {
 
-    public function getSearchIndex()
-    {
-        return $this->getTable();
-    }
+  private $elasticsearch;
 
-    public function getSearchType()
-    {
-        if (property_exists($this, 'useSearchType')) {
-            return $this->useSearchType;
-        }
+  public function __construct(Client $elasticsearch) {
+    $this->elasticsearch = $elasticsearch;
+  }
 
-        return $this->getTable();
-    }
+  public function saved($model) {
+    $this->elasticsearch->index([
+      'index' => $model->getSearchIndex(),
+      'type' => $model->getSearchType(),
+      'id' => $model->id,
+      'body' => $model->toSearchArray(),
+    ]);
+  }
 
-    public function toSearchArray()
-    {
-        // By having a custom method that transforms the model
-        // to a searchable array allows us to customize the
-        // data that's going to be searchable per model.
-        return $this->toArray();
-    }
+  public function deleted($model) {
+    $this->elasticsearch->delete([
+      'index' => $model->getSearchIndex(),
+      'type' => $model->getSearchType(),
+      'id' => $model->id,
+    ]);
+  }
+
 }

@@ -1,6 +1,6 @@
 <?php
-use App\Articles\ArticlesRepository;
 
+use App\Well;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +13,27 @@ use App\Articles\ArticlesRepository;
 */
 
 Route::get('/', function () {
-  return view('articles.index', [
-    'articles' => App\Article::all(),
+    return view('index');
+});
+
+Route::get('/new_layout', function () {
+  return view('new_layout');
+})->name('new_layout');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/wells', 'WellController@search')->name('search');
+Route::get('/wells', function () { //$lat, $lon) {
+  return view('search', [
+    'wells' => DB::table('wells')->inRandomOrder()->limit(15)->get(),
   ]);
 });
 
-Route::get('/search', function (ArticlesRepository $repository) {
-  $articles = $repository->search((string) request('q'));
-
-  return view('articles.index', [
-    'articles' => $articles,
+Route::get('/well/{id}', function ($id) {
+  return view('well', [
+    'id' => $id,
+    'well' => Well::where('id', $id)->first(),
   ]);
 });
