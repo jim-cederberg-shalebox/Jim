@@ -25,12 +25,20 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('/wells', 'WellController@search')->name('search');
+/*
 Route::get('/wells', function () { //$lat, $lon) {
   return view('search', [
     'wells' => DB::table('wells')->inRandomOrder()->limit(15)->get(),
   ]);
 });
+*/
 
+Route::get('/sell', function () {
+  return view('sell');
+})->name('sell');
+
+Route::post('/create', 'WellController@create')->name('create');
+Route::get('/wells', 'WellController@search')->name('search');
 Route::get('/well/{id}', function ($id) {
   return view('well', [
     'id' => $id,

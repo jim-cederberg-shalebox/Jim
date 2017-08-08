@@ -41,9 +41,9 @@ class WellController extends Controller {
     $lat = $request->input('lat');
     $lng = $request->input('lng');
 
-    $wells = null;
+    $wells = Well::where('id', 1046217640)->get();
 
-    return view('search', ['wells' => wells, 'center' => $wells->getCenter()]);
+    return view('search', ['wells' => $wells]); //, 'center' => $wells->getCenter()]);
   }
 
   /**
@@ -55,6 +55,30 @@ class WellController extends Controller {
    */
   public function display(Well $well) {
 
+  }
+
+  /**
+   * Create a new well
+   *
+   * @return Response;
+   */
+  public function create(Request $request) {
+    $well = new Well();
+    $well->lat = $request->lat;
+    $well->lon = $request->lon;
+    $well->location = $request->location;
+    $well->operator = $request->operator;
+    $well->lease = $request->lease;
+    $well->api = $request->api;
+    $well->elevation = $request->elevation;
+    $well->elevation_ref = $request->elevation_ref;
+    $well->depth_start = $request->depth_start;
+    $well->depth_stop = $request->depth_stop;
+    $well->url = $request->url;
+    $well->save();
+    //$well->write_to_elasticsearch();
+
+    return redirect('/well/' . $well->id);
   }
 
   /**

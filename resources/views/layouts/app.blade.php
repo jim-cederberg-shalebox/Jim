@@ -46,7 +46,7 @@
                         @else
                             <li><a href="#">My Account</a></li>
                             <li><a href="/wells">Buy Data</a></li>
-                            <li><a href="#">Sell Data</a></li>
+                            <li><a href="{{ route('sell') }}">Sell Data</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
